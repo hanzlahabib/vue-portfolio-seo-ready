@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+$primary: #017FAF;
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+    "iface";
+    background: #f7f7f7;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    color: $primary;
+    text-decoration: none;
+}
+
+p {
+    line-height: 25px;
+}
+
+#app {
+    grid-area: iface;
+    width: 90%;
+    max-width: 1500px;
+    height: 90%;
+
+    .container {
+        background: #fff;
+        box-shadow: 15px 15px 40px lightgray;
+        overflow: hidden;
+        height: 100%;
+
+        .inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+
+            nav {
+                display: grid;
+                grid-template-columns: 200px auto;
+                grid-template-areas:
+                "logo nav";
+                padding: 50px;
+                position: absolute;
+                z-index: 4;
+                width: 92%;
+
+                #logo {
+                    grid-area: logo;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                ul {
+                    grid-area: nav;
+                    list-style-type: none;
+                    justify-self: right;
+                    margin: 0;
+
+                    li {
+                        display: inline;
+
+                        a {
+                            color: #000;
+                            font-size: .7em;
+                            text-transform: uppercase;
+                            padding: 0 15px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 42% auto;
+    grid-template-areas:
+    "left right";
+
+    .left-content {
+        padding: 100px 50px 15px 50px;
+
+        h1 {
+            color: $primary;
+            font-size: 3.2em;
+            line-height: 1em;
+        }
+    }
+
+    .right-content {
+        background: #d6d6d6;
+        display: grid;
+        grid-template-columns: auto;
+        justify-items: center;
+        align-items: center;
+    }
+}
+
+.arrow {
+    width: 43px;
+    position: absolute;
+    right: -21px;
+}
+
+.arrow-down {
+    bottom: 30px;
+}
+
+.arrow-up {
+    display: block;
+    float: right;
+    width: 43px;
+    height: 43px;
+  }
+
+  button {
+    background: none;
+    padding: 15px 20px;
+    font-size: 1.7em;
+    outline: 0;
+    border: 1px solid $primary;
+    color: $primary;
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    cursor: pointer;
+}
+
+.slideUp {
+    animation: slideUpAnim 3s forwards;
+    opacity: 0;
+}
+
+@keyframes slideUpAnim {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 100;
+        transform: translateY(0);
+    }
+}
+
+.fade-enter-active {
+    animation: slidePageIn 1s forwards;
+    animation-timing-function: cubic-bezier(.8, -0.49, .36, 1);
+}
+
+.fade-leave-active {
+    animation: slidePageDown 1s forwards;
+    animation-timing-function: cubic-bezier(.8, -0.49, .36, 1);
+}
+
+@keyframes slidePageIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slidePageDown {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 01;
+        transform: translateY(100%);
+    }
+}
